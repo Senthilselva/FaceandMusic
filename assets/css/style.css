@@ -1,5 +1,45 @@
-body{
-	font-family: 'Mogra', cursive;
-	text-align: center;
-	background-color: #00ffff;
+/*sticky footer start*/
+html{
+    position: relative;
+    min-height: 100%;
+}
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    margin: 0 0 100px;
+    color: black;
+    text-align:center;
+    font-size:20px;
+}
+footer {
+    background-color: grey;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
+    padding: 25px;
+}
+
+.maincontent{
+    border: 1px solid red;
+    background-color: aqua;
+    padding: 50px;
+}
+
+.sidebar{
+    border: 1px solid blue;
+    background-color: red;
+}
+.pictureArea{
+    height: 400px;
+    border: 1px solid green;
+    background-color: grey;
+}
+.picForm{
+    border: 1px solid blue;
+    background-color: lightgrey;
+}
+.recentAlbum{
+    padding: 10px;
 }
