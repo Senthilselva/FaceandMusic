@@ -21,6 +21,11 @@ footer {
     padding: 25px;
 }
 
+
+.login{
+    float:right;
+    padding-right: 25px;
+}
 .maincontent{
     border: 1px solid red;
     background-color: aqua;
