@@ -1,82 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
 	<title>SpotifyApp - Team</title>
+
 	<!-- reset CSS  -->
+
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    
+  
 	<!-- Google fonts -->
+
 	<link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
   	
 	<!-- Added link to the jQuery Library -->
+
 	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 	
 	<!-- Added a link to Bootstrap-->
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
+    <!-- Added script file Bootstrap -->
+
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- style sheet -->
+
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- Firebase Reference -->
+
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
 	<!-- Moment.js -->
 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-	</head>
 
+</head>
 <body>
 	<div class="container-fluid" >
 		<div class="jumbotron">
-			<div>
-				<H1>SpotifyApp</H1>
-			</div>
-			<div class="row login">
-			  	<!-- Trigger the modal with a button -->
-			  	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
-			  	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#SignUpModal">Sign Up</button>
-			  	<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Log out</button> -->
-
-			  	<!-- Modal Login -->
-			  	<div class="modal fade" id="myModal" role="dialog">
-			    	<div class="modal-dialog">
-			    
-			      		<!-- Modal content-->
-			      		<div class="modal-content">
-			        		<div class="modal-header">
-			          			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			          			<h4 class="modal-title">Login</h4>
-			        		</div>
-			        		<div class="modal-body">
-			         			<input id="txtEmail" type="email" placeholder="email"> <!-- will show only if no one is logged in-->
-								<input id="txtPassword"  type="password" placeholder="password"> <!-- will show only if no one is logged in-->
-								<button type="button" class="btn btn-info btn-sm">Submit</button>
-			        		</div>
-			      		</div>
-			    	</div>
-			  	</div>
-			  	<!-- Modal Sign Up -->
-			  	<div class="modal fade" id="SignUpModal" role="dialog">
-			    	<div class="modal-dialog">
-			    
-			      		<!-- Modal content-->
-			      		<div class="modal-content">
-			        		<div class="modal-header">
-			          			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			          			<h4 class="modal-title">Sign Up</h4>
-			        		</div>
-			        		<div class="modal-body">
-			         			<input id="txtEmail" type="email" placeholder="email"> <!-- will show only if no one is logged in-->
-								<input id="txtPassword"  type="password" placeholder="password"> <!-- will show only if no one is logged in-->
-								<button type="button" class="btn btn-info btn-sm">Submit</button>
-			        		</div>
-			      		</div>
-			    	</div>
-			  	</div>
-			</div>
+			<H1>SpotifyApp</H1>
 		</div>
 	
 		<div class="maincontent col-sm-12 col-md-8 col-lg-9">
@@ -106,6 +71,11 @@
 		  	</div>
 		</div>
 		<div class="sidebar col-sm-12 col-md-4 col-lg-3">
+
+
+			<div class="usernameDisplay">
+				Username <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#logout">Log out</button>
+			</div>
 			<div class="recentAlbum">
 				<button>Album</button>
 			</div>
