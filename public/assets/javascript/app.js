@@ -56,6 +56,26 @@ function checkAuthorization() {
     }
 }
 
+function createPlaylistFrame(uri) {
+
+    
+}
+
+function displayPlaylists(response) {
+
+    var playlistArray = response.playlists.items;
+    $("#playlists").empty();
+
+    for (playlist = 0; playlist < 5; playlist ++) {
+  
+        var uri = playlistArray[playlist].uri;
+
+        var iframe = '<iframe src="https://embed.spotify.com/?uri=' + uri +'"' + ' width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
+        $("#playlists").append(iframe);
+    }
+
+}
+
 $(document).ready(function() {
 
 	console.log("document ready");
@@ -66,6 +86,8 @@ $(document).ready(function() {
 		loginWithSpotify();
 	});
 
+
+    // function to search spotify api for displayPlaylists
 	$('#btnSearch').on('click', function(){
 
 		var query = $('#search').val().trim();
@@ -77,6 +99,8 @@ $(document).ready(function() {
 		
 		callSpotify(url, data).then(function(response){
 			console.log(response);
+            console.log(response.playlists.items)
+            displayPlaylists(response);
 		})
 
 
