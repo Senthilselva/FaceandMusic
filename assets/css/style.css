@@ -4,6 +4,7 @@ html{
     min-height: 100%;
 }
 body {
+    background: url("../images/music.jpg");
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     margin: 0 0 100px;
     color: black;
@@ -20,10 +21,17 @@ footer {
     overflow:hidden;
     padding: 25px;
 }
+.backgroundImg{
 
+}
+
+.login{
+    float:right;
+    padding-right: 25px;
+}
 .maincontent{
     border: 1px solid red;
-    background-color: aqua;
+    /*background-color: aqua;*/
     padding: 50px;
 }
 
