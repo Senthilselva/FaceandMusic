@@ -42,6 +42,63 @@
 	<script src="assets/javascript/spotify.js"></script>
 	</head>
 <body>
+
+<div id = "LoginAndSignUP"> <!--Senthil's Changes-->
+  <div class="container-fluid backgroundImg">
+    <div class="jumbotron">
+      <H1>SpotifyApp</H1>
+    </div>
+    
+    <div class="maincontent col-sm-12 col-md-12 col-lg-12">
+      <div class="row">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#LoginModal">Login</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#SignUpModal">Sign Up</button>
+
+          <!-- Modal Login -->
+        <div class="modal fade" id="LoginModal" role="dialog">
+          <div class="modal-dialog">
+                  <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+              </div>
+              <div class="modal-body">
+                <input id="txtEmail" type="email" placeholder="email">
+                <input id="txtPassword"  type="password" placeholder="password">
+                <button id="btnLogin" type="button" class="btn btn-info btn-sm">Login</button>
+                <div id="errMsgSignUp"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Sign Up -->
+        <div class="modal fade" id="SignUpModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <input id="txtSignUpName"  type="text" placeholder="your name"><br>
+                <input id="txtSignUpEmail" type="email" placeholder="email"><br>
+                <input id="txtSignUpPassword"  type="password" placeholder="password"><br>
+                <button id="btnSignup" type="button" class="btn btn-info btn-sm">Sign Up</button>
+                <div id="errMsgSignUp"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--Login and Sign up -->
+
+<div id="mainPage"> <!-- senthil's Changes -->
 	<div class="container-fluid" >
 		<div class="jumbotron">
 			<H1>SpotifyApp</H1>
@@ -67,7 +124,9 @@
 						<div class="form-group">
 			    			<label for="picInputFile">Upload Picture</label>
 			    			<input type="file" id="picInputFile">
-			    			<p class="help-block">Upload your picture here.</p>
+			    			<!-- Senthil added to show the image -->
+			    			<img src="" height="200" alt="Your picture here..." class="uploadImage">
+			    			<p class="help-block"></p>
 			  			</div>
 			  		</form>
 			  	</div>
@@ -77,9 +136,12 @@
 		</div>
 		<div class="sidebar col-sm-12 col-md-4 col-lg-3">
 
-
-			<div class="usernameDisplay">
-				Username <button id="btnLogout" type="button" class="btn btn-info btn-sm">Logout</button>
+    <!--Senthil changes -->
+	  <div>
+      <div class="usernameDisplay">
+				Username
+      </div>
+        <button id="btnLogout" type="button" class="btn btn-info btn-sm">Logout</button>
 			</div>
 			<div class="recentAlbum">
 				<button>Album</button>
