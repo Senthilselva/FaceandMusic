@@ -56,24 +56,22 @@ function checkAuthorization() {
     }
 }
 
-function createPlaylistFrame(uri) {
 
-    
-}
+// takes the response from a spotify playlist query and displays the first 4 relevant playslists
 
 function displayPlaylists(response) {
 
     var playlistArray = response.playlists.items;
     $("#playlists").empty();
 
-    for (playlist = 0; playlist < 5; playlist ++) {
+    for (playlist = 0; playlist < 4; playlist ++) {
   
         var uri = playlistArray[playlist].uri;
 
         var iframe = '<iframe src="https://embed.spotify.com/?uri=' + uri +'"' + ' width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
+
         $("#playlists").append(iframe);
     }
-
 }
 
 $(document).ready(function() {
@@ -87,9 +85,10 @@ $(document).ready(function() {
 	});
 
 
-    // function to search spotify api for displayPlaylists
+    // function to search spotify api for playlists
 	$('#btnSearch').on('click', function(){
 
+        // this query will be replaced with an emotion based on the image data
 		var query = $('#search').val().trim();
 		var url = 'https://api.spotify.com/v1/search/'
 		var data = {
