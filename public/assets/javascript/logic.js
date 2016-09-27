@@ -191,6 +191,7 @@ function previewFile() {
   console.log(gvUser.key);
   //saving it to the database
   database.ref("Members").child(gvUser.key+"/Picture").push({pic: gvUser.email+"/"+file.name});
+  callEmotive(file,apiUrl,apiKey);
   }
 }
 
