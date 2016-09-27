@@ -4,9 +4,6 @@
  
  //apiUrl: The base URL for the API. Find out what this is for other APIs via the API documentation
  var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
-
- var file = '{"url": "https://firebasestorage.googleapis.com/v0/b/senthilproject-ae6ac.appspot.com/o/senthil%2Fface-01.jpg?alt=media&token=6fbc08b6-3767-42db-8744-5fefdbe00036"}'
- 
  
  function CallEmotive(fileURL, apiUrl, apiKey)
  {
