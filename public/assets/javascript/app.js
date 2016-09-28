@@ -50,8 +50,8 @@ function checkAuthorization() {
             spotifyApi.setAccessToken(credentials.token);
             ;
         } else {
-    // otherwise, got to spotify to get auth
-            $("#btnLogin").show();
+    // otherwise, go to spotify to get auth
+            $(".SpotifyLogin").show();
         }
     }
 }
@@ -62,9 +62,9 @@ $(document).ready(function() {
 
 	checkAuthorization();
 
-	$('#btnLogin').on('click', function(){
-		loginWithSpotify();
-	});
+	// $('#btnSpotifyLogin').on('click', function(){
+	// 	loginWithSpotify();
+	// });
 
 	$('#btnSearch').on('click', function(){
 

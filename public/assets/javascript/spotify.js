@@ -1,11 +1,11 @@
-console.log('spotify loaded')
-
+console.log('spotify loaded');
 
 var spotifyApi = new SpotifyWebApi();
 
 function loginWithSpotify() {
     var client_id = 'c06624947f124dcbb0d4375eb2336a40';
-    var redirect_uri = 'https://spotifyapp-564b4.firebaseapp.com/spotifytest.html';
+    //var redirect_uri = 'https://spotifyapp-564b4.firebaseapp.com/spotifytest.html';
+    var redirect_uri = "https://spotifyappjm.firebaseapp.com/index.html"
     var scopes = 'playlist-modify-public';
     if (document.location.hostname == 'localhost') {
         redirect_uri = 'http://localhost:8000/index.html';
@@ -57,3 +57,8 @@ function callSpotify(url, data) {
 
 
 // get playlists tagged with category
+// {
+//   "projects": {
+//     "default": "spotifyapp-564b4"
+//   }
+// }

@@ -1,21 +1,25 @@
 $(document).ready(function() {
+	var login = 0;
+
 	console.log("page ready");
+	$(".loginSignupSection").hide();
+	$(".playlistShow").hide();
 
-	// $("#btnLogin").on("click", function(){
-	// 	var txtEmail = $("#txtEmail").val().trim();
-	// 	var txtPassword = $("#txtPassword").val().trim();
-		
-	// 	console.log(txtEmail);
-	// 	console.log(txtPassword);
-	// });
+	$(".btnSpotifyLogin").on('click', function(){
+		console.log("Hello world");
+		loginWithSpotify();
+		login = 1;
+		loginSpotifyCheck();
+	});
 
-	// $("#btnSignup").on("click", function(){
-	// 	var txtName = $("#txtSignUpName").val().trim();
-	// 	var txtEmail = $("#txtSignUpEmail").val().trim();
-	// 	var txtPassword = $("#txtSignUpPassword").val().trim();
-		
-	// 	console.log(txtName);
-	// 	console.log(txtEmail);
-	// 	console.log(txtPassword);
-	// });
+	function loginSpotifyCheck(){
+		if(login == 1){
+			alert("Error");
+			$(".SpotifyLogin").hide();
+			
+		}else{
+			$(".playlistShow").show();
+			$(".SpotifyLogin").hide();
+		}	
+	}
 });
