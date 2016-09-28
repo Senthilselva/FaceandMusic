@@ -1,5 +1,7 @@
-// filepicker.setKey("AQJ6QdJrISSSWI7qBzBDCz");
-  // Initialize Firebase
+$(document).ready(function() {
+
+  
+	// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDz9GC105fz2aqAqcqVw-Fg-2SS-N4_8JA",
     authDomain: "senthilproject-ae6ac.firebaseapp.com",
@@ -24,12 +26,6 @@ const auth =firebase.auth();
 //------Storage Reference
 const storage = firebase.storage();
 var storageref= storage.ref();
-
-//----------------filepicker Api
-filepicker.setKey('AGNvnt3JRSivjclBDat2Ez');
-
-
-$(document).ready(function() {
 
 //--------Signing up for a account
 $("#btnSignup").on('click',function(){
@@ -118,7 +114,7 @@ $("#btnLogin").on('click',function(){
 //-------get User info from database--------
 function getUserInfo(user){
   database.ref('Members').orderByChild("email").equalTo(user.email).once('value',function(snapshot){
-    //console.log("snapshot "+ JSON.stringify(snapshot.val()));
+//    console.log("snapshot "+ JSON.stringify(snapshot.val()));
     snapshot.forEach(function(data) {
       var nameV = changetoCapitol(data.val().name);
       $('.usernameDisplay').html(nameV);
@@ -128,21 +124,11 @@ function getUserInfo(user){
         gvUser.name=data.val().name;
         gvUser.key=data.key;
         console.log("key "+gvUser.key);
-        $('#storedImages').empty();
-
         if(data.child("Picture").exists()){
           console.log("picture");
           data.child("Picture").forEach(function(picPath) {
-  
-          //Create image tag and add to the screen 
-          var imgTab = $('<img>');
-          imgTab.addClass('picture');
-          imgTab.attr('src',picPath.val().picUrl);
-          imgTab.attr('data-url',picPath.val().picUrl);
-          $("#storedImages").append(imgTab);
-            console.log(picPath.val().picUrl);
-
-          });
+            console.log(picPath);
+            });
         }//if picture exists
     }); //looping through the snapshot  
 
@@ -169,56 +155,74 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       $('#mainPage').show();
       $('#LoginAndSignUP').hide();
       getUserInfo(firebaseUser);
-     // location.reload();
 			console.log(firebaseUser);
 		} else {
       gvEmail="";
       $('#mainPage').hide();
       $('#LoginAndSignUP').show();
-     // location.reload();
 			console.log("not logged in");
 		}
 });//Closing OnAuthSateChanged
 
-//Log out 
 $("#btnLogout").on('click',function(){
 	firebase.auth().signOut();
   location.reload();
 });
 	
 
-//$("#picInputFile").on('change',previewFile);
-
+$("#picInputFile").on('change',previewFile);
 ////Display on page
+function previewFile() {
+	//console.log("preview")
+  var preview = $('.uploadImage');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+  console.log(file);
 
+  reader.addEventListener("load", function () {
+    preview.attr('src',reader.result);
+  }, false);
 
-$("#storedImages").on("click",'.picture', function(e){
-  downLoadFile(e)
-});
+  if(file){
+   reader.readAsDataURL(file);
+    //uploading to firebase storage
+ 	storageref.child(gvUser.email+"/"+file.name).put(file);
+  console.log(gvUser.email+"/"+file.name);
+  console.log(gvUser.key);
+  //saving it to the database
+  database.ref("Members").child(gvUser.key+"/Picture").push({pic: gvUser.email+"/"+file.name});
+  }
+}
 
-function downLoadFile(e){
-var url =$(e.target).data("url");
-//Call emotive here/////////////////
-//CallEmotive(url, apiUrl, apiKey);
+$("#btnUpload").on("click",downLoadFile);
+
+function downLoadFile(){
+
+var picname="technics.jpg"
+  storageref.child("senthil/"+picname).getDownloadURL().then(function(url) {
+console.log("downloading"+ url);
+    
+    var uploadImg = document.querySelector('img');
+    uploadImg.src=url;
+    
+    emotive(newfile);
+
+  });
   
 }
 
 /////emotive stuff
+
+ $('#btn').click(function () {
+ //file: The file that will be sent to the api
+ var file = document.getElementById('filename').files[0];
+ 
+ emotiveAPI(file, apiUrl, apiKey);
+ });
+ 
+ function emotive(file){
+  console.log("hahaha");
+ }
+ 
  
 });
-
-
-
-function previewFile(url) {
-  var preview = $('.uploadImage');
-  preview.attr('src',url);
-  preview.attr('data-url',url);
-  database.ref("Members").child(gvUser.key+"/Picture").push({"picUrl": url});
-  console.log(url);
-  //Call emotive here/////////////////
-  //CallEmotive(url, apiUrl, apiKey);
-}
-
-
-
-
