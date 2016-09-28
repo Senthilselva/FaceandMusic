@@ -5,12 +5,12 @@
  //apiUrl: The base URL for the API. Find out what this is for other APIs via the API documentation
  var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
  
- function CallEmotive(fileURL, apiUrl, apiKey)
+ function callEmotive(fileURL, apiUrl, apiKey)
  {
     $.ajax({
      url: apiUrl,
      beforeSend: function (xhrObj) {
-     xhrObj.setRequestHeader("Content-Type", "application/json");
+     xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
      xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
      },
      type: "POST",
@@ -18,7 +18,7 @@
      processData: false
     })
     .done(function (response) {
-    ProcessResult(response);
+    processResult(response);
     })
     .fail(function (error) {
     alert("fail")
@@ -26,7 +26,7 @@
     });
   }
  
- function ProcessResult(response)
+ function processResult(response)
  {
  console.log(response)
  

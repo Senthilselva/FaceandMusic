@@ -48,4 +48,10 @@ $(document).ready(function() {
 	});
 
 
+    $("#picInputFile").on('change', function(){
+        previewFile();
+        
+    })
+
+
 });

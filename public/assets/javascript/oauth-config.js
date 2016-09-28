@@ -8,7 +8,7 @@ var OAuthConfig = (function() {
   if (location.host === 'localhost:8005') {
     redirectUri = 'http://localhost:8005/callback.html';
   } else {
-    redirectUri = 'https://spotifyapp-564b4.firebaseapp.com/spotifytest.html';
+    redirectUri = 'https://spotifyapp-564b4.firebaseapp.com/';
   }
   var host = /http[s]?:\/\/[^/]+/.exec(redirectUri)[0];
   return {
