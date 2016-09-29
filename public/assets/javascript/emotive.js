@@ -37,7 +37,9 @@
 
     })
     .fail(function (error) {
-    alert("fail")
+    var failfile = '{ "url": "http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg" }'
+    $("#emotiveModal").modal()
+    callEmotive(failfile, apiUrl, apiKey)
     
     });
   }
@@ -52,6 +54,8 @@
     console.log(mood);
 
     getPlaylists(mood);
+
+    
 
 
  };
