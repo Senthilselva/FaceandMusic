@@ -37,7 +37,9 @@
 
     })
     .fail(function (error) {
-    alert("fail")
+    var failfile = '{ "url": "http://example.com/picture.jpg" }'
+    $("#emotiveModal").modal()
+    callEmotive(failfile, apiUrl, apiKey)
     
     });
   }
@@ -52,6 +54,8 @@
     console.log(mood);
 
     getPlaylists(mood);
+
+    
 
 
  };
