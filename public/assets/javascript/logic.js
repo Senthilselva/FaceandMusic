@@ -195,6 +195,7 @@ function changetoCapitol(pharse){
 
 //Log out 
 $("#btnLogout").on('click',function(){
+  console.log("Logging Out");
 	firebase.auth().signOut();
   location.reload();
 });
