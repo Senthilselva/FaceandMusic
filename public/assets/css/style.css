@@ -51,3 +51,8 @@ footer {
 .recentAlbum{
     padding: 10px;
 }
+
+.picture{
+    height:200px;
+    width:200px;
+}

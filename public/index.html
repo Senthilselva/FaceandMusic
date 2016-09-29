@@ -21,28 +21,112 @@
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
+
+	<!-- <script src="assets/javascript/oauth.js"></script> -->
+
 	<script src="assets/javascript/oauth-config.js"></script>
 
 	<script src="assets/javascript/oauth-manager.js"></script>
 
 	<script src="assets/javascript/oauth-send-back.js"></script>
 
-	<script src="assets/javascript/logic.js"></script>
-
 	<script src="assets/javascript/emotive.js"></script>
 
+	<script src="assets/javascript/logic.js"></script>
+
+	
+
+
 	<!-- Spotify Web API -->
-	<script src="assets/javascript/spotify-web-api.js"></script>
+	<!-- <script src="assets/javascript/spotify-web-api.js"></script> -->
+
+
+	<!-- <script src = "assets/javascript/app.js" type="text/javascript"> </script> -->
+
+	<!-- Added by senthil on 9/28-->
+	<!-- image uploader -->
+	<script type="text/javascript">
+(function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filestackapi.com/filestack.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
+</script>
+	
+
+	<!-- Firebase -->
+	<script src = "assets/javascript/logic.js" type="text/javascript"> </script>
+
+	<!-- <script src="assets/javascript/spotify.js"></script> -->
 
 	
 	<script src="assets/javascript/spotify.js"></script>
 
 	<script src = "assets/javascript/app.js" type="text/javascript"> </script>
+
 	</head>
 
 	
 
 <body>
+
+
+<div id = "LoginAndSignUP"> <!--Senthil's Changes-->
+  <div class="container-fluid backgroundImg">
+    <div class="jumbotron">
+      <H1>SpotifyApp</H1>
+    </div>
+    
+    <div class="maincontent col-sm-12 col-md-12 col-lg-12">
+      <div class="row">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#LoginModal">Login</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#SignUpModal">Sign Up</button>
+
+          <!-- Modal Login -->
+        <div class="modal fade" id="LoginModal" role="dialog">
+          <div class="modal-dialog">
+                  <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+              </div>
+              <div class="modal-body">
+                <input id="txtEmail" type="email" placeholder="email">
+                <input id="txtPassword"  type="password" placeholder="password">
+                <button id="btnLogin" type="button" class="btn btn-info btn-sm">Login</button>
+                <div id="errMsgSignUp"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Sign Up -->
+        <div class="modal fade" id="SignUpModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <input id="txtSignUpName"  type="text" placeholder="your name"><br>
+                <input id="txtSignUpEmail" type="email" placeholder="email"><br>
+                <input id="txtSignUpPassword"  type="password" placeholder="password"><br>
+                <button id="btnSignup" type="button" class="btn btn-info btn-sm">Sign Up</button>
+                <div id="errMsgSignUp"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--Login and Sign up -->
+
+<div id="mainPage"> <!-- senthil's Changes -->
+	<div class="container-fluid" >
+		<div class="jumbotron">
+			<H1>SpotifyApp</H1>
+
 	<div class="jumbotron">
 		<H1>SpotifyApp</H1>
 		<div class="row">
@@ -55,6 +139,7 @@
 			
 			<input id="search"  type="text" placeholder="Happy">
 			<button id = "btnSearch">Search</button>
+
 
 		</div>
 	</div>
@@ -75,18 +160,40 @@
 				<div class="col-sm-12 col-md-6 col-lg-6">
 					<form class="picForm">
 						<div class="form-group">
+
+			    			<input type="filepicker"
+			    			id ='filepicker' data-fp-apikey="AQJ6QdJrISSSWI7qBzBDCz" data-fp-mimetypes="*/*" data-fp-container="modal" data-fp-store-location="s3" > 
+
+			    			<!-- Senthil commented 9/28/16 -->
+			    			<!-- Senthil added to show the image -->
+			    			<img src="" height="200" alt="Your picture here..." class="uploadImage">
+			    			<p class="help-block"></p>
+
 			    			<label for="picInputFile">Upload Picture</label>
 			    			<input type="file" id="picInputFile">
 			    			<img src="" height="200" alt="Your picture here..." class='uploadImage'>
 			    			<p class="help-block">Upload your picture here.</p>
+
 			  			</div>
 			  		</form>
 			  	</div>
 		  		<div class="col-sm-12 col-md-3 col-lg-3">
 
+		  		<div id ="storedImages"><!--Senthil 9/28 --> 
+		  			
+		  		</div> <!-- display image from database -->
 
 				</div>
 		  	</div>
+
+
+    <!--Senthil changes -->
+	  <div>
+      <div class="usernameDisplay">
+				Username
+      </div>
+        <button id="btnLogout" type="button" class="btn btn-info btn-sm">Logout</button>
+			</div>
 
 		  	<div class='row'>
 
@@ -97,6 +204,7 @@
 		  	</div>
 		</div>
 		<div class="sidebar col-sm-12 col-md-4 col-lg-3">
+
 			<div class="recentAlbum">
 				<button>Album</button>
 			</div>
