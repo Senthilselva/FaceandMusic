@@ -56,8 +56,9 @@ $(document).ready(function() {
     })
 
     $('#spotifyConnect').on('click', function(){
-        loginWithSpotify();
         $('#spotifyModal').modal('toggle');
+        loginWithSpotify();
+
     })
 
     // Uploading Images
