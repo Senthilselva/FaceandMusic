@@ -3,6 +3,7 @@
 {
   min-height: 450px;
   max-width:100%;
+  border: solid white 1px;
 }
 
 #left 
@@ -34,6 +35,9 @@
 
 }
 
+.fp__btn {
+  background: #1FD55E;
+}
 
 body
 {
