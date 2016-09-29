@@ -1,59 +1,119 @@
 console.log('spotify loaded')
 
 
+// deprecated for now. using OAuth
+// function loginWithSpotify() {
+//     console.log('logging in with spotify');
+//     var client_id = 'c06624947f124dcbb0d4375eb2336a40';
+//     var redirect_uri = 'https://spotifyapp-564b4.firebaseapp.com/spotifytest.html';
+//     var scopes = 'playlist-modify-public';
+//     if (document.location.hostname == 'localhost') {
+//         redirect_uri = 'http://localhost:8000/index.html';
+//     }
+//     var url = 'https://accounts.spotify.com/authorize?client_id=' + client_id +
+//         '&response_type=code' +
+//         '&scope=' + encodeURIComponent(scopes) +
+//         '&redirect_uri=' + encodeURIComponent(redirect_uri);
+//     document.location = url;
+// }
+
+var token;
+
 var spotifyApi = new SpotifyWebApi();
 
-function loginWithSpotify() {
-    var client_id = 'c06624947f124dcbb0d4375eb2336a40';
-    var redirect_uri = 'https://spotifyapp-564b4.firebaseapp.com/spotifytest.html';
-    var scopes = 'playlist-modify-public';
-    if (document.location.hostname == 'localhost') {
-        redirect_uri = 'http://localhost:8000/index.html';
-    }
-    var url = 'https://accounts.spotify.com/authorize?client_id=' + client_id +
-        '&response_type=token' +
-        '&scope=' + encodeURIComponent(scopes) +
-        '&redirect_uri=' + encodeURIComponent(redirect_uri);
-    document.location = url;
+function getTime() {
+    return Math.round(new Date().getTime() / 1000);
 }
 
+function checkAuthorization() {
+    // if we already have a token and it hasn't expired, use it,
+    if ('credentials' in localStorage) {
+        credentials = JSON.parse(localStorage.credentials);
+    }
+    if (credentials && credentials.expires > getTime()) {
+
+        spotifyApi.setAccessToken(credentials.token);
+      
+    } else {
+    // we have a token as a hash parameter in the url
+    // so parse hash
+        var hash = location.hash.replace(/#/g, '');
+        var all = hash.split('&');
+        var args = {};
+        all.forEach(function(keyvalue) {
+            var idx = keyvalue.indexOf('=');
+            var key = keyvalue.substring(0, idx);
+            var val = keyvalue.substring(idx + 1);
+            args[key] = val;
+        });
+        if (typeof(args['access_token']) != 'undefined') {
+            var g_access_token = args['access_token'];
+            var expiresAt = getTime() + 3600;
+            if (typeof(args['expires_in']) != 'undefined') {
+                var expires = parseInt(args['expires_in']);
+                expiresAt = expires + getTime();
+            }
+            credentials = {
+                token:g_access_token,
+                expires:expiresAt
+            }
+            callSpotify('https://api.spotify.com/v1/me').then(
+                function(user) {
+                    credentials.user_id = user.id;
+                    localStorage['credentials'] = JSON.stringify(credentials);
+                    location.hash = '';
+
+                },
+                function() {
+                    error("Can't get user info");
+                })
+
+            spotifyApi.setAccessToken(credentials.token);
+            ;
+        } else {
+    // otherwise, got to spotify to get auth
+    console.log('showing login button')
+            $("#btnLogin").show();
+        }
+    }
+}
+
+// may want to use spotifyapi calls instead
 function callSpotify(url, data) {
     return $.ajax(url, {
         dataType: 'json',
         data: data,
         headers: {
-            'Authorization': 'Bearer ' + credentials.token
+            'Authorization': 'Bearer ' + token//credentials.token
         }
     });
 }
 
-// OAuth.initialize('OH3J6Mqg1mBKNjN24ew-znaon0w');
+// takes the response from a spotify playlist query and displays the first 4 relevant playslists
 
-// // Spotify Authorization Popup
-// OAuth.redirect('spotify', callbackURL)
-// 	.then(function(oathResult) {
-// 		return oathResult.get('/me');
-// 	}).then(function(data){
-// 		console.log(data)
+function displayPlaylists(response) {
 
-// 	}).fail(function(err){
-// 		console.log(err)
+    var playlistArray = response.playlists.items;
+    $("#playlists").empty();
 
-// 	});
+    for (playlist = 0; playlist < 4; playlist ++) {
+  
+        var uri = playlistArray[playlist].uri;
 
-// OAuth.callback('spotify').done(function(){
-// 	console.log('callback')
-// })
-	// .done( function (result){
-	// 	console.log(result)
-	// 	console.log('got a result!')
-	// })
-	// .fail( function (err) {
-	// 	console.log(err)
-	// 	console.log('failed')
+        var iframe = '<iframe src="https://embed.spotify.com/?uri=' + uri +'"' + ' width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
 
-// var spotify = OAuth.create('spotify');
-// console.log(spotify)
+        $("#playlists").append(iframe);
+    }
+}
 
+function onTokenReceived(accessToken) {
 
-// get playlists tagged with category
+    token = accessToken;
+
+    spotifyApi.setAccessToken(token);
+
+};
+
+function onUserDataFetched(data) {
+    var user = data.id;
+};
