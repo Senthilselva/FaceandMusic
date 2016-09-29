@@ -1,3 +1,23 @@
+body
+{
+  background-color: black;
+  color:white;
+}
+
+.modal-header, .modal-footer {
+  background: black;
+}
+
+.modal-body {
+  color: black;
+}
+
+#loginDiv {
+
+  position: absolute;
+  top: 45%;
+}
+
 
 .content
 {
@@ -11,10 +31,26 @@
   background: url("../images/background.jpg");
 }
 
+#filepicker {
+  position: absolute;
+  top: 85%;
+}
+
+#previewPic img {
+  max-width: 75%;
+  max-height: 65%;
+  margin-top: 20px;
+}
+
 #playlists
 {
   background: url("../images/background2.jpg");
 
+}
+
+#playlists iframe {
+
+  margin-top: 35px;
 }
 
 
@@ -39,9 +75,13 @@
   background: #1FD55E;
 }
 
-body
-{
-  background-color: black;
-  color:white;
+.btn-primary {
+  background: #1FD55E  ;
 }
+
+.btn-primary:hover {
+  background: #159541;
+}
+
+
 

@@ -74,9 +74,9 @@ function checkAuthorization() {
             spotifyApi.setAccessToken(credentials.token);
             ;
         } else {
-         // otherwise, got to spotify to get auth
-            console.log('showing login button')
-            $("#btnLogin").show();
+         // otherwise, go to spotify to get auth
+            loginWithSpotify();
+
         }
     }
 }
