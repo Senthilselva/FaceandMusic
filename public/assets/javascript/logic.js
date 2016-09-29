@@ -210,7 +210,6 @@ function downloadFile(e){
   callEmotive(url, apiUrl, apiKey);
 }
 
-
 function previewFile(url) {
   // create preview image
   var preview = $('<img>');

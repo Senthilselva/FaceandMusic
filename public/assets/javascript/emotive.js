@@ -37,30 +37,43 @@
 
     })
     .fail(function (error) {
-    var failfile = '{ "url": "http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg" }'
-    $("#emotiveModal").modal()
-    callEmotive(failfile, apiUrl, apiKey)
+        var url = 'http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg'
+        var failfile = '{ "url": "http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg" }'
+        $("#emotiveModal").modal()
+        callEmotive(failfile, apiUrl, apiKey)
     
     });
   }
  
   function processResult(response) {
-    if(response = []){
+    if(response.length == 0){
+        var url = 'http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg'
+        var failfile = '{"url":'+ '"' + url+ '"' + '}';
 
         $("#emotiveModal").modal()
-        callEmotive(failfile, apiUrl, apiKey)  
+        callEmotive(failfile, apiUrl, apiKey)
+
+        // create preview image
+          var preview = $('<img>');
+          preview.addClass('uploadImage');
+          preview.attr('src',url);
+          preview.attr('data-url',url);
+
+          // append image to div
+          $('#previewPic img').remove();
+          $('#previewPic').prepend(preview);
+    }else{
+        console.log(response)
+        var scores = response[0].scores;
+
+        var scoresSorted = Object.keys(scores).sort(function(a,b){return scores[b]-scores[a]});
+
+        var mood = scoresSorted[0];
+        console.log(mood);
+
+        getPlaylists(mood);
+
     }
-    console.log(response)
-    var scores = response[0].scores;
-
-    var scoresSorted = Object.keys(scores).sort(function(a,b){return scores[b]-scores[a]});
-
-    var mood = scoresSorted[0];
-    console.log(mood);
-
-    getPlaylists(mood);
-
-    
 
 
  };
