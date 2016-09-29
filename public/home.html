@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Face the Music App!</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+
+</head>
+<body>
+	<!--url("../images/concrete_seamless.png");-->
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+	<script src="assets/javascript/oauth.js"></script>
+
+	<!-- Spotify Web API -->
+	<script src="assets/javascript/spotify-web-api.js"></script>
+
+	<script src = "assets/javascript/app.js" type="text/javascript"> </script>
+	<script src="assets/javascript/spotify.js"></script>
+	
+	<header id="masthead">
+	
+		<div class="container">
+			<a href="home.html" id="logo"></a>
+			<nav>
+				<a href="home.html">Home</a>
+				<a href="suggestions.html">Suggestions</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="main-section">
+			<h1>Welcome to the Face the Music App!</h1>
+
+			<img src="assets/images/.jpg" class="auth-image">
+
+			<p> </p>
+			<section class="Login">
+				<h2>Enter Your Login Info</h2>
+				<input id="txtEmail" type="email" placeholder="Enter Spotify Username" required="required">
+				<input id="txtPassword"  type="password" placeholder="Password" required="required">
+					
+				<button id = "btnLogin">Log in</button>
+				<button id = "btnSignup">Sign Up</button>
+				<button id = "btnLogout">Log out</button>
+
+				<input id="search"  type="text" placeholder="Happy">
+				<button id = "btnSearch">Search</button>
+				
+				<!-- <div class="sidebar col-sm-12 col-md-4 col-lg-3">
+
+					<div class="Upload Pictures">
+						<h3>Upload Your Pictures </h3>
+						
+						<div class="recentAlbum">
+							<button>Album</button>
+						</div>
+						<div class="recentAlbum">
+							<button>Album</button>
+						</div>
+						<div class="recentAlbum">
+							<button>Album</button>
+						</div>
+						<div class="recentAlbum">
+							<button>Album</button>
+						</div>
+					</div>
+				</div> -->
+			</section>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			&copy; Copyright 2016 Face the Music App
+		</div>
+	</footer>
+</body>
+</html>

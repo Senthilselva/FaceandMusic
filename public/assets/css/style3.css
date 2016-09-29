@@ -1,0 +1,45 @@
+/*sticky footer start*/
+html{
+    position: relative;
+    min-height: 100%;
+}
+body {
+    background-color: black;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    margin: 0 0 100px;
+    color: #1FD55E;
+    text-align:center;
+    font-size:20px;
+}
+
+footer {
+    background: url("../images/Bottom.jpg");
+    /*background-size: 100% 100%;*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    min-height: 200px;
+    width: 100%;
+    overflow:hidden;
+    padding: 25px;
+}
+
+.logo{
+	background: url("../images/ftmlogo.jpg") no-repeat;
+	min-height: 250px;
+	position:relative;
+}
+
+.backgroundImg{
+	background: url("../images/background.jpg");
+	min-height: 450px;
+}
+
+.picture{
+   height:200px;
+   width:200px;
+}
+
+.errMsgSignUp{
+	color: red;
+}
