@@ -35,13 +35,14 @@ $(document).ready(function() {
         var email = $("#txtEmail").val().trim();
         var password = $("#txtPassword").val().trim();
         firebaseLogin(email, password);
+
     })
 
     // Signup Process
 
      $("#btnSignup").on('click',function(){
         $('#signupModal').modal();
-
+        $('#loginModal').modal('toggle');
      })
 
 
@@ -51,6 +52,13 @@ $(document).ready(function() {
         var password = $("#txtSignupPassword").val().trim();
 
         firebaseSignup(email, password);
+        $('#signupModal').modal('toggle');
+    })
+
+    $('#spotifyConnect').on('click', function(){
+        $('#spotifyModal').modal('toggle');
+        loginWithSpotify();
+
     })
 
     // Uploading Images
@@ -58,7 +66,4 @@ $(document).ready(function() {
         previewFile(event.fpfile.url);
     })
 
-    // $('#spotify').on('click', function(){
-    //   loginWithSpotify();
-    // })
 });

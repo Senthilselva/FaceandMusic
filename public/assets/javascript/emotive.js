@@ -1,4 +1,4 @@
-
+    
 
 //apiKey: Replace this with your own Project Oxford Emotion API key, please do not use my key. I include it here so you can get up and running quickly but you can get your own key for free at https://www.projectoxford.ai/emotion 
  var apiKey = "2249a05a078e4e21877833c9a7409778";
@@ -37,7 +37,9 @@
 
     })
     .fail(function (error) {
-    alert("fail")
+    var failfile = '{ "url": "http://ll-media.tmz.com/2015/06/16/0616-tom-anderson-myspace-friend-now-photos-launch-1200x630.jpg" }'
+    $("#emotiveModal").modal()
+    callEmotive(failfile, apiUrl, apiKey)
     
     });
   }
@@ -52,6 +54,8 @@
     console.log(mood);
 
     getPlaylists(mood);
+
+    
 
 
  };
