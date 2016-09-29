@@ -1,4 +1,4 @@
-
+    
 
 //apiKey: Replace this with your own Project Oxford Emotion API key, please do not use my key. I include it here so you can get up and running quickly but you can get your own key for free at https://www.projectoxford.ai/emotion 
  var apiKey = "2249a05a078e4e21877833c9a7409778";
