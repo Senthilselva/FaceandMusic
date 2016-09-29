@@ -1,19 +1,14 @@
+ // Initialize Firebase
 
-// filepicker.setKey("AQJ6QdJrISSSWI7qBzBDCz");
-  // Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDz9GC105fz2aqAqcqVw-Fg-2SS-N4_8JA",
+  authDomain: "senthilproject-ae6ac.firebaseapp.com",
+  databaseURL: "https://senthilproject-ae6ac.firebaseio.com",
+  storageBucket: "senthilproject-ae6ac.appspot.com",
+  messagingSenderId: "32686972649"
+};
 
-
-  
-	// Initialize Firebase
-
-  var config = {
-    apiKey: "AIzaSyDz9GC105fz2aqAqcqVw-Fg-2SS-N4_8JA",
-    authDomain: "senthilproject-ae6ac.firebaseapp.com",
-    databaseURL: "https://senthilproject-ae6ac.firebaseio.com",
-    storageBucket: "senthilproject-ae6ac.appspot.com",
-    messagingSenderId: "32686972649"
-  };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 //Global Variable
 var gvUser={};
 //Show the login page
@@ -30,7 +25,7 @@ var database = firebase.database();
 var ref = database.ref();
 
 //------Authentication Reference
-const auth =firebase.auth();
+const auth = firebase.auth();
 
 //------Storage Reference
 const storage = firebase.storage();
@@ -39,8 +34,6 @@ var storageref= storage.ref();
 
 //----------------filepicker Api
 filepicker.setKey('AGNvnt3JRSivjclBDat2Ez');
-
-
 
 
 //--------Signing up for a account

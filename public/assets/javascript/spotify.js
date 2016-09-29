@@ -115,7 +115,7 @@ function displayPlaylists(response) {
     var playlistArray = response.playlists.items;
     $("#playlists").empty();
 
-    for (playlist = 0; playlist < 4; playlist ++) {
+    for (playlist = 0; playlist < 1; playlist ++) {
   
         var uri = playlistArray[playlist].uri;
 
