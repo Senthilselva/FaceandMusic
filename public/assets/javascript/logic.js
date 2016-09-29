@@ -41,7 +41,6 @@ var storageref= storage.ref();
 filepicker.setKey('AGNvnt3JRSivjclBDat2Ez');
 
 
-$(document).ready(function() {
 
 
 //--------Signing up for a account
@@ -258,6 +257,7 @@ function downLoadFile(e){
 var url =$(e.target).data("url");
 //Call emotive here/////////////////
 callEmotive(url, apiUrl, apiKey);
+}
 
 // //Show and hide the login and 
 // firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -282,23 +282,23 @@ callEmotive(url, apiUrl, apiKey);
 
 
 
-$("#btnUpload").on("click",downLoadFile);
+// $("#btnUpload").on("click",downLoadFile);
 
-function downLoadFile(){
+// function downLoadFile(){
 
-var picname="technics.jpg"
-  storageref.child("senthil/"+picname).getDownloadURL().then(function(url) {
-console.log("downloading"+ url);
+// var picname="technics.jpg"
+//   storageref.child("senthil/"+picname).getDownloadURL().then(function(url) {
+// console.log("downloading"+ url);
     
-    var uploadImg = document.querySelector('img');
-    uploadImg.src=url;
+//     var uploadImg = document.querySelector('img');
+//     uploadImg.src=url;
     
-    emotive(newfile);
+//     emotive(newfile);
 
-  });
+//   });
 
   
-}
+// }
 
 /////emotive stuff
 
@@ -313,7 +313,9 @@ function previewFile(url) {
   database.ref("Members").child(gvUser.key+"/Picture").push({"picUrl": url});
   console.log(url);
   //Call emotive here/////////////////
-  callEmotive(url, apiUrl, apiKey);
+  var file = '{"url":'+ '"' + url+ '"' + '}';
+  console.log(file)
+  callEmotive(file, apiUrl, apiKey);
 }
 
 
@@ -330,27 +332,27 @@ function previewFile(url) {
  // }
 
  ////Display on page
-function previewFile() {
-    //console.log("preview")
-  var preview = $('.uploadImage');
-  var file    = document.querySelector('input[type=file]').files[0];
-  var reader  = new FileReader();
-  console.log(file);
+// function previewFile() {
+//     //console.log("preview")
+//   var preview = $('.uploadImage');
+//   var file    = document.querySelector('input[type=file]').files[0];
+//   var reader  = new FileReader();
+//   console.log(file);
 
-  reader.addEventListener("load", function () {
-    preview.attr('src',reader.result);
-  }, false);
+//   reader.addEventListener("load", function () {
+//     preview.attr('src',reader.result);
+//   }, false);
 
-  if(file){
-   reader.readAsDataURL(file);
-    //uploading to firebase storage
-    storageref.child(gvUser.email+"/"+file.name).put(file);
-  console.log(gvUser.email+"/"+file.name);
-  console.log(gvUser.key);
-  //saving it to the database
-  database.ref("Members").child(gvUser.key+"/Picture").push({pic: gvUser.email+"/"+file.name});
-  callEmotive(file,apiUrl,apiKey);
-  }
-}
+//   if(file){
+//    reader.readAsDataURL(file);
+//     //uploading to firebase storage
+//     storageref.child(gvUser.email+"/"+file.name).put(file);
+//   console.log(gvUser.email+"/"+file.name);
+//   console.log(gvUser.key);
+//   //saving it to the database
+//   database.ref("Members").child(gvUser.key+"/Picture").push({pic: gvUser.email+"/"+file.name});
+//   callEmotive(file,apiUrl,apiKey);
+//   }
+// }
  
 

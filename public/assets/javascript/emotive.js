@@ -7,7 +7,7 @@
  var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
 
 
- var file = '{"url": "https://cdn.filestackcontent.com/ALOiFAKmTNmBGtIqtcSM"}'
+ // var file = '{"url": "https://cdn.filestackcontent.com/ALOiFAKmTNmBGtIqtcSM"}'
  
  $('#btn').click(function () {
  //file: The file that will be sent to the api
@@ -25,8 +25,6 @@
 
      xhrObj.setRequestHeader("Content-Type", "application/json");
 
-     xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-
      xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
      },
      type: "POST",
@@ -34,8 +32,6 @@
      processData: false
     })
     .done(function (response) {
-
-    ProcessResult(response);
 
     processResult(response);
 
@@ -46,8 +42,16 @@
     });
   }
  
- function processResult(response)
- {
- console.log(response)
- 
- }
+  function processResult(response) {
+    console.log(response)
+    var scores = response[0].scores;
+
+    var scoresSorted = Object.keys(scores).sort(function(a,b){return scores[b]-scores[a]});
+
+    var mood = scoresSorted[0];
+    console.log(mood);
+
+    getPlaylists(mood);
+
+
+ };
