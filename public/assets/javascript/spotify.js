@@ -75,7 +75,7 @@ function checkAuthorization() {
             ;
         } else {
          // otherwise, go to spotify to get auth
-            loginWithSpotify();
+            $('#spotifyModal').modal()
 
         }
     }
