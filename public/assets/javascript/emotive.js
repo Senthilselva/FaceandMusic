@@ -11,10 +11,10 @@ $(document).ready(function(){
  //file: The file that will be sent to the api
  // var file = document.getElementById('filename').files[0];
 
- CallEmotive(file, apiUrl, apiKey);
+ callEmotive(file, apiUrl, apiKey);
  });
  
- function CallEmotive(fileURL, apiUrl, apiKey)
+ function callEmotive(fileURL, apiUrl, apiKey)
  {
     $.ajax({
      url: apiUrl,
@@ -35,7 +35,7 @@ $(document).ready(function(){
     });
   }
  
- function ProcessResult(response)
+ function processResult(response)
  {
  console.log(response)
  

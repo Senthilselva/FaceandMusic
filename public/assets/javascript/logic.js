@@ -199,7 +199,7 @@ $("#storedImages").on("click",'.picture', function(e){
 function downLoadFile(e){
 var url =$(e.target).data("url");
 //Call emotive here/////////////////
-//CallEmotive(url, apiUrl, apiKey);
+callEmotive(url, apiUrl, apiKey);
   
 }
 
@@ -216,7 +216,7 @@ function previewFile(url) {
   database.ref("Members").child(gvUser.key+"/Picture").push({"picUrl": url});
   console.log(url);
   //Call emotive here/////////////////
-  //CallEmotive(url, apiUrl, apiKey);
+  callEmotive(url, apiUrl, apiKey);
 }
 
 
