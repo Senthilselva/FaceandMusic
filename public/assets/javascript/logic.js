@@ -54,7 +54,7 @@ function firebaseSignup(email, password) {
 
   // catch an error and display it document
 	promise.catch(e => 
-    $("#errMsgSignUp").html(e.message));
+    $(".errMsgSignUp").html(e.message));
   // ERROR HANDLING NEEDED
 
   //Add the user to the database
@@ -64,13 +64,13 @@ function firebaseSignup(email, password) {
 //------------Validating email-id
 function checkEmail(email){
   if (typeof(email) == 'undefined' || email==null) {
-    $("#errMsgSignUp").html("Enter an email-id");
+    $(".errMsgSignUp").html("Enter an email-id");
     return false;
   }
   var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
-      $("#errMsgSignUp").html("Please enter valid email-id- eg abc@efg.com");
+      $(".errMsgSignUp").html("Please enter valid email-id- eg abc@efg.com");
       return false;
     } 
     return true;
@@ -80,13 +80,13 @@ function checkEmail(email){
 function checkPassword(password){
   if (typeof(password) == 'undefined' || password==null) {
  
-    $("#errMsgSignUp").html("Enter password");
+    $(".errMsgSignUp").html("Enter password");
     return false;
   }
   if(password.length >= 6){
     return true;
   } else {
-    $("#errMsgSignUp").html("Password should have atleast 6 letters");
+    $(".errMsgSignUp").html("Password should have atleast 6 letters");
     return false;
   }
 }
@@ -121,7 +121,7 @@ function firebaseLogin(email, password){
 	const promise = auth.signInWithEmailAndPassword(email,password)
 	promise.then(user => getUserInfo(user));
   promise.catch(e => 
-    $("#errMsgSignUp").html(e.message));
+    $(".errMsgSignUp").html(e.message));
     // NEED ERROR HANDLING HERE
 };
 
