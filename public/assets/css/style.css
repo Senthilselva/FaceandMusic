@@ -56,10 +56,13 @@ body
 
 #logoDiv
 {
-  background: url("../images/ftmlogo.jpg") no-repeat;
+  /*background: url("../images/ftmlogo.jpg") no-repeat;*/
   min-height: 250px;
   max-width:100%;
-  
+}
+
+#logoDiv img {
+  width: 100%;
 }
 
 
