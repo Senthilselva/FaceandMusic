@@ -45,6 +45,11 @@
   }
  
   function processResult(response) {
+    if(response = []){
+
+        $("#emotiveModal").modal()
+        callEmotive(failfile, apiUrl, apiKey)  
+    }
     console.log(response)
     var scores = response[0].scores;
 
