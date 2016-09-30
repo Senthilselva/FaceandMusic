@@ -21,6 +21,8 @@
   <!-- style sheet -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+  <link rel='stylesheet' type='text/css' href='https://d12k56if6tn11s.cloudfront.net/15ddff4/assets/css/custom_dialog/dark-theme.css'>
+
   <!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
@@ -53,7 +55,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+
             <h4 class="modal-title">Log In</h4>
           </div>
           <div class="modal-body">
@@ -61,8 +63,8 @@
             <input id="txtPassword"  type="password" placeholder="password">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" id='btnSubmitLogin' class="btn btn-primary">Login</button>
+            <button type="button" class="close btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" id='btnSubmitLogin' class="close btn btn-primary">Login</button>
             <div class="errMsgSignUp"></div>
           </div>
         </div><!-- /.modal-content -->
@@ -74,7 +76,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+            
             <h4 class="modal-title">Sign Up</h4>
           </div>
           <div class="modal-body">
@@ -83,8 +85,8 @@
             <input id="txtSignupPassword"  type="password" placeholder="password">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" id='btnSubmitSignup' class="btn btn-primary">Sign Up</button>
+            <button type="button" class="close btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" id='btnSubmitSignup' class="close btn btn-primary">Sign Up</button>
             <div class="errMsgSignUp"></div>
           </div>
         </div><!-- /.modal-content -->
@@ -96,14 +98,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+            
             <h4 class="modal-title">Sorry! </h4>
           </div>
           <div class="modal-body">
           We couldn't read that image. Here's one of your best friend Tom instead.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">OK</button>
+            <button type="button" class="close btn btn-primary">OK</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -114,14 +116,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+        
             <h4 class="modal-title">Connect to Spotify </h4>
           </div>
           <div class="modal-body">
             Our app uses Spotify for awesome. Connect now!
           </div>
           <div class="modal-footer">
-            <button type="button" id='spotifyConnect' class="btn btn-primary">Connect to Spotify</button>
+            <button type="button" id='spotifyConnect' class="close btn btn-primary">Connect to Spotify</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
