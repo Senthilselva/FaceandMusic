@@ -86,5 +86,8 @@ body
   background: #159541;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active{
+    background: #159541;
+}
 
 
