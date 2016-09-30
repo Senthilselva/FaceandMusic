@@ -8,6 +8,8 @@ $(document).ready(function() {
     //Show and hide the login and 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
+          $('#signupModal').hide();
+          $('#loginModal').hide();
           $('#previewPic').show();
           $('#loginDiv').hide();
           getUserInfo(firebaseUser);
@@ -42,7 +44,7 @@ $(document).ready(function() {
 
      $("#btnSignup").on('click',function(){
         $('#signupModal').modal();
-        $('#loginModal').modal('toggle');
+        
      })
 
 
@@ -52,11 +54,11 @@ $(document).ready(function() {
         var password = $("#txtSignupPassword").val().trim();
 
         firebaseSignup(email, password);
-        $('#signupModal').modal('toggle');
+        
     })
 
     $('#spotifyConnect').on('click', function(){
-        $('#spotifyModal').modal('toggle');
+        $('#spotifyModal').hide();
         loginWithSpotify();
 
     })

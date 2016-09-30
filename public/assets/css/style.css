@@ -60,11 +60,12 @@ body
   /*background: url("../images/ftmlogo.jpg") no-repeat;*/
   min-height: 250px;
   max-width:100%;
-  border: solid white 1px;
+  
 }
 
 #logoDiv img {
   width: 100%;
+  border: solid white 1px;
 }
 
 

@@ -194,7 +194,7 @@ function changetoCapitol(pharse){
 // });//Closing OnAuthSateChanged
 
 //Log out 
-$("#btnLogout").on('click',function(){
+$("#btnLogout").on('click', function(){
   console.log("Logging Out");
 	firebase.auth().signOut();
   location.reload();
