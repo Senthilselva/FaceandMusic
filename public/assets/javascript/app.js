@@ -8,8 +8,9 @@ $(document).ready(function() {
     //Show and hide the login and 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
-          $('#signupModal').hide();
-          $('#loginModal').hide();
+          $('#signupModal').modal('toggle');
+          $('#loginModal').modal('toggle');
+          $('.modal-backdrop').remove();
           $('#previewPic').show();
           $('#loginDiv').hide();
           getUserInfo(firebaseUser);
@@ -58,7 +59,8 @@ $(document).ready(function() {
     })
 
     $('#spotifyConnect').on('click', function(){
-        $('#spotifyModal').hide();
+        $('#spotifyModal').modal('toggle')
+        $('.modal-backdrop').remove();
         loginWithSpotify();
 
     })
