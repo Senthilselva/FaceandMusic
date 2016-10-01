@@ -68,7 +68,10 @@
 
         var scoresSorted = Object.keys(scores).sort(function(a,b){return scores[b]-scores[a]});
 
+        console.log(scoresSorted);
+
         var mood = scoresSorted[0];
+
         console.log(mood);
 
         getPlaylists(mood);

@@ -22,8 +22,8 @@ body
 
 .content
 {
-  min-height: 450px;
-  max-width:100%;
+  height: 550px;
+  max-width:95%;
   border: solid white 1px;
 }
 
@@ -38,8 +38,8 @@ body
 }
 
 #previewPic img {
+  max-height: 75%;
   max-width: 75%;
-  max-height: 65%;
   margin-top: 20px;
 }
 
@@ -60,6 +60,8 @@ body
   /*background: url("../images/ftmlogo.jpg") no-repeat;*/
   min-height: 250px;
   max-width:100%;
+  padding: 0;
+  margin-top: 30px;
   
 }
 
@@ -71,11 +73,15 @@ body
 
 #bottom
 {
-  background: url("../images/Bottom.jpg");
+  /*background: url("../images/Bottom.jpg");*/
   min-height: 200px;
-  max-width:100%;
+  max-width: 100%;
   border: solid white 1px;
+  padding: 0;
+}
 
+#bottom img{
+  max-width: 100%;
 }
 
 .fp__btn {

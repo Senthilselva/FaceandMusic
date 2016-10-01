@@ -11,6 +11,7 @@ $(document).ready(function() {
           $('#signupModal').modal('toggle');
           $('#loginModal').modal('toggle');
           $('.modal-backdrop').remove();
+          $('body').removeClass('modal-open');
           $('#previewPic').show();
           $('#loginDiv').hide();
           getUserInfo(firebaseUser);
@@ -61,6 +62,7 @@ $(document).ready(function() {
     $('#spotifyConnect').on('click', function(){
         $('#spotifyModal').modal('toggle')
         $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
         loginWithSpotify();
 
     })
